@@ -4,7 +4,7 @@
 //   };
 // };
 
-type Params = Promise<{ slug: string[] }>;
+type Params = Promise<{ slug: string }>;
 
 export async function generateMetadata({ params }: { params: Params }) {
   const { slug } = await params;
