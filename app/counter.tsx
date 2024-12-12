@@ -7,7 +7,7 @@ export default function Counter() {
   return (
     <>
       <p>change</p>
-      <h2>Bad thing {count}</h2>
+      <h2>{count}</h2>
       <button type="button" onClick={() => setCount(count + 1)}>
         +
       </button>
