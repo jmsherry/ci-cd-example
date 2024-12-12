@@ -1,13 +1,17 @@
-type Params = {
-  params: {
-    slug: string;
-  };
-};
+// type Params = {
+//   params: {
+//     slug: string;
+//   };
+// };
 
-export async function generateMetadata({ params }: Params) {
-  return { title: `Post: ${params.slug}` };
+type Params = Promise<{ slug: string[] }>;
+
+export async function generateMetadata({ params }: { params: Params }) {
+  const { slug } = await params;
+  return { title: `Post: ${slug}` };
 }
 
-export default function Page({ params }: Params) {
-  return <h1>Slug: {params.slug}</h1>;
+export default async function Page({ params }: { params: Params }) {
+  const { slug } = await params;
+  return <h1>Slug: {slug}</h1>;
 }
